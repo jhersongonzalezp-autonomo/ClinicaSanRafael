@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/login_screen_bg">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottomNavigationContainer"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Top Header -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Agenda médico"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Agenda"
+                        android:textColor="@color/text_primary"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dra. Laura Gómez · Cardiología"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🎛️ 📥 ▶"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <!-- Date Picker Chips Row -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!-- LU 8 -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="50dp"
+                        android:layout_height="65dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:strokeColor="@color/input_stroke"
+                        app:strokeWidth="1dp"
+                        android:layout_marginEnd="8dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="LU" android:textSize="11sp" android:textColor="@color/text_secondary"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="8" android:textSize="16sp" android:textStyle="bold" android:textColor="@color/text_primary"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- MA 9 -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="50dp"
+                        android:layout_height="65dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:strokeColor="@color/input_stroke"
+                        app:strokeWidth="1dp"
+                        android:layout_marginEnd="8dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="MA" android:textSize="11sp" android:textColor="@color/text_secondary"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="9" android:textSize="16sp" android:textStyle="bold" android:textColor="@color/text_primary"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- MI 10 (Selected) -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="50dp"
+                        android:layout_height="65dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardBackgroundColor="@color/hospital_light_green"
+                        app:strokeColor="@color/hospital_green"
+                        app:strokeWidth="1dp"
+                        android:layout_marginEnd="8dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="MI" android:textSize="11sp" android:textColor="@color/hospital_green" android:textStyle="bold"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="10" android:textSize="16sp" android:textStyle="bold" android:textColor="@color/hospital_green"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- JU 11 -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="50dp"
+                        android:layout_height="65dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:strokeColor="@color/input_stroke"
+                        app:strokeWidth="1dp"
+                        android:layout_marginEnd="8dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="JU" android:textSize="11sp" android:textColor="@color/text_secondary"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="11" android:textSize="16sp" android:textStyle="bold" android:textColor="@color/text_primary"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- VI 12 -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="50dp"
+                        android:layout_height="65dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:strokeColor="@color/input_stroke"
+                        app:strokeWidth="1dp"
+                        android:layout_marginEnd="8dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="VI" android:textSize="11sp" android:textColor="@color/text_secondary"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="12" android:textSize="16sp" android:textStyle="bold" android:textColor="@color/text_primary"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- SÁ 13 -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="50dp"
+                        android:layout_height="65dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:strokeColor="@color/input_stroke"
+                        app:strokeWidth="1dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="SÁ" android:textSize="11sp" android:textColor="@color/text_secondary"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="13" android:textSize="16sp" android:textStyle="bold" android:textColor="@color/text_primary"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <!-- Sección Header Fecha -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MIÉRCOLES 10 DE SEPTIEMBRE"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Card Paciente Cita -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20dp"
+                app:cardBackgroundColor="@color/white"
+                app:strokeColor="@color/input_stroke"
+                app:strokeWidth="1dp"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="12dp">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="44dp"
+                            android:layout_height="44dp"
+                            app:cardCornerRadius="22dp"
+                            app:cardBackgroundColor="@color/hospital_light_green"
+                            app:strokeWidth="0dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="JP"
+                                android:textColor="@color/accent_medico"
+                                android:textStyle="bold"
+                                android:layout_gravity="center" />
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginStart="12dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Juan Pérez"
+                                android:textColor="@color/text_primary"
+                                android:textStyle="bold"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="HC-2024-001 · 55 años"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <!-- Badge Por atender -->
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="8dp"
+                            app:cardBackgroundColor="#FFEBEE"
+                            app:strokeWidth="0dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Por atender"
+                                android:textColor="#C62828"
+                                android:textSize="11sp"
+                                android:textStyle="bold"
+                                android:paddingHorizontal="8dp"
+                                android:paddingVertical="4dp" />
+                        </com.google.android.material.card.MaterialCardView>
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Motivo: Dolor en el pecho"
+                        android:textColor="@color/text_primary"
+                        android:textStyle="bold"
+                        android:textSize="13sp"
+                        android:layout_marginBottom="16dp" />
+
+                    <!-- Botón Iniciar consulta -->
+                    <Button
+                        android:id="@+id/btnIniciarConsulta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="24dp"
+                        android:paddingVertical="10dp"
+                        android:text="✓ Iniciar consulta"
+                        android:textSize="14sp"
+                        android:backgroundTint="@color/hospital_green"
+                        android:textColor="@color/white" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Bottom Navigation -->
+    <LinearLayout
+        android:id="@+id/bottomNavigationContainer"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_alignParentBottom="true"
+        android:background="#F5F5F5"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:elevation="8dp">
+
+        <!-- Agenda (Activo) -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@color/hospital_light_green">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="📅" android:textSize="18sp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Agenda" android:textColor="@color/hospital_green" android:textStyle="bold" android:textSize="11sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/navConsulta"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🩺" android:textSize="18sp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Consulta" android:textColor="@color/text_secondary" android:textSize="11sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/navHistorial"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="📋" android:textSize="18sp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Historial" android:textColor="@color/text_secondary" android:textSize="11sp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

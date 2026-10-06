@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/login_screen_bg">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottomNavigationContainer"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Top Header -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="16dp">
+
+                <ImageView
+                    android:id="@+id/btnBack"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@android:drawable/ic_menu_revert"
+                    app:tint="@color/text_primary"
+                    android:contentDescription="Volver"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:layout_marginEnd="8dp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Historial médico"
+                        android:textColor="@color/text_primary"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="HC-2024-001"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🎛️ 📥 ▶"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <!-- Card Paciente -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardBackgroundColor="@color/white"
+                app:strokeColor="@color/input_stroke"
+                app:strokeWidth="1dp"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="16dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        app:cardCornerRadius="20dp"
+                        app:cardBackgroundColor="@color/hospital_light_green"
+                        app:strokeWidth="0dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="JP"
+                            android:textColor="@color/accent_medico"
+                            android:textStyle="bold"
+                            android:layout_gravity="center" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="12dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Juan Pérez"
+                            android:textColor="@color/text_primary"
+                            android:textStyle="bold"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="HC-2024-001 · DNI 99887766D · 55 años"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Tabs: Todo, Diagnósticos, Tratamientos -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="16dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Todo"
+                    android:textColor="@color/hospital_green"
+                    android:textStyle="bold"
+                    android:paddingVertical="8dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Diagnósticos"
+                    android:textColor="@color/text_secondary"
+                    android:paddingVertical="8dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Tratamientos"
+                    android:textColor="@color/text_secondary"
+                    android:paddingVertical="8dp" />
+            </LinearLayout>
+
+            <!-- Card Consulta Timeline -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20dp"
+                app:cardBackgroundColor="@color/white"
+                app:strokeColor="@color/input_stroke"
+                app:strokeWidth="1dp"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="12dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Consulta 2025-09-10"
+                                android:textColor="@color/text_primary"
+                                android:textStyle="bold"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Dra. Laura Gómez · Dolor en el pecho"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="8dp"
+                            app:cardBackgroundColor="#E8F5E9"
+                            app:strokeWidth="0dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Realizada"
+                                android:textColor="@color/hospital_green"
+                                android:textSize="11sp"
+                                android:textStyle="bold"
+                                android:paddingHorizontal="8dp"
+                                android:paddingVertical="4dp" />
+                        </com.google.android.material.card.MaterialCardView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/layoutTimelineItems"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <!-- Item 1: Diagnóstico -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:paddingVertical="8dp">
+                            <TextView android:layout_width="28dp" android:layout_height="28dp" android:text="🩺" android:gravity="center"/>
+                            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="8dp">
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="DIAGNÓSTICO" android:textSize="11sp" android:textColor="@color/text_secondary" android:textStyle="bold"/>
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Dolor torácico agudo de origen coronario probable." android:textSize="13sp" android:textColor="@color/text_primary"/>
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Dra. Laura Gómez · 2025-09-10" android:textSize="11sp" android:textColor="@color/text_secondary"/>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <!-- Item 2: Tratamiento -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:paddingVertical="8dp">
+                            <TextView android:layout_width="28dp" android:layout_height="28dp" android:text="💊" android:gravity="center"/>
+                            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="8dp">
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="TRATAMIENTO PRESCRITO" android:textSize="11sp" android:textColor="@color/text_secondary" android:textStyle="bold"/>
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Aspirina 100mg cada 24 horas" android:textSize="13sp" android:textColor="@color/text_primary"/>
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Dra. Laura Gómez · 2025-09-10" android:textSize="11sp" android:textColor="@color/text_secondary"/>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Bottom Navigation -->
+    <LinearLayout
+        android:id="@+id/bottomNavigationContainer"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_alignParentBottom="true"
+        android:background="#F5F5F5"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:elevation="8dp">
+
+        <LinearLayout
+            android:id="@+id/navAgenda"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="📅" android:textSize="18sp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Agenda" android:textColor="@color/text_secondary" android:textSize="11sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/navConsulta"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🩺" android:textSize="18sp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Consulta" android:textColor="@color/text_secondary" android:textSize="11sp"/>
+        </LinearLayout>
+
+        <!-- Historial (Activo) -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@color/hospital_light_green">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="📋" android:textSize="18sp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Historial" android:textColor="@color/hospital_green" android:textStyle="bold" android:textSize="11sp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

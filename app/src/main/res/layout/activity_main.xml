@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/login_screen_bg">
+
+    <!-- Scroll principal para el contenido de la tarjeta blanca -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottomNavigationContainer"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Contenedor Principal Blanco (Card de Personal) -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="28dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/white"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <!-- Encabezado con flecha atrás y Título -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
+
+                        <TextView
+                            android:id="@+id/btnBackArrow"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="‹"
+                            android:textColor="@color/text_primary"
+                            android:textSize="32sp"
+                            android:textStyle="bold"
+                            android:layout_marginEnd="12dp"
+                            android:clickable="true"
+                            android:focusable="true" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Personal"
+                                android:textColor="@color/text_primary"
+                                android:textSize="22sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvSubtituloPersonal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Clínica San Rafael · 0 empleados"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Filtros (Chips Horizontales) -->
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="none"
+                        android:layout_marginBottom="20dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <!-- Chip Todos -->
+                            <com.google.android.material.card.MaterialCardView
+                                android:id="@+id/chipTodos"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:cardCornerRadius="14dp"
+                                app:cardBackgroundColor="@color/hospital_light_green"
+                                app:strokeColor="@color/hospital_green"
+                                app:strokeWidth="1dp"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:layout_marginEnd="8dp">
+                                <TextView
+                                    android:id="@+id/tvChipTodos"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Todos"
+                                    android:textColor="@color/hospital_green"
+                                    android:textStyle="bold"
+                                    android:paddingHorizontal="14dp"
+                                    android:paddingVertical="6dp" />
+                            </com.google.android.material.card.MaterialCardView>
+
+                            <!-- Chip Médicos -->
+                            <com.google.android.material.card.MaterialCardView
+                                android:id="@+id/chipMedicos"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:cardCornerRadius="14dp"
+                                app:cardBackgroundColor="@color/white"
+                                app:strokeColor="@color/input_stroke"
+                                app:strokeWidth="1dp"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:layout_marginEnd="8dp">
+                                <TextView
+                                    android:id="@+id/tvChipMedicos"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Médicos"
+                                    android:textColor="@color/text_primary"
+                                    android:paddingHorizontal="14dp"
+                                    android:paddingVertical="6dp" />
+                            </com.google.android.material.card.MaterialCardView>
+
+                            <!-- Chip Enfermeros -->
+                            <com.google.android.material.card.MaterialCardView
+                                android:id="@+id/chipEnfermeros"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:cardCornerRadius="14dp"
+                                app:cardBackgroundColor="@color/white"
+                                app:strokeColor="@color/input_stroke"
+                                app:strokeWidth="1dp"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:layout_marginEnd="8dp">
+                                <TextView
+                                    android:id="@+id/tvChipEnfermeros"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Enfermeros"
+                                    android:textColor="@color/text_primary"
+                                    android:paddingHorizontal="14dp"
+                                    android:paddingVertical="6dp" />
+                            </com.google.android.material.card.MaterialCardView>
+
+                            <!-- Chip Administrativos -->
+                            <com.google.android.material.card.MaterialCardView
+                                android:id="@+id/chipAdministrativos"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:cardCornerRadius="14dp"
+                                app:cardBackgroundColor="@color/white"
+                                app:strokeColor="@color/input_stroke"
+                                app:strokeWidth="1dp"
+                                android:clickable="true"
+                                android:focusable="true">
+                                <TextView
+                                    android:id="@+id/tvChipAdministrativos"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Administrativos"
+                                    android:textColor="@color/text_primary"
+                                    android:paddingHorizontal="14dp"
+                                    android:paddingVertical="6dp" />
+                            </com.google.android.material.card.MaterialCardView>
+                        </LinearLayout>
+                    </HorizontalScrollView>
+
+                    <!-- Contenedor dinámico de la Lista de Empleados -->
+                    <LinearLayout
+                        android:id="@+id/layoutListaEmpleados"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="16dp" />
+
+                    <!-- Sección Detalle -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="DETALLE SELECCIONADO"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="12dp" />
+
+                    <!-- Card de Detalle Dinámico -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardDetalleSeleccionado"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="16dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:strokeColor="@color/hospital_green"
+                        app:strokeWidth="1dp"
+                        android:layout_marginBottom="16dp">
+
+                        <LinearLayout
+                            android:id="@+id/layoutContenidoDetalle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+                            <!-- Se llena dinámicamente en código -->
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Botón Flotante/Contratar alineado a la derecha -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/btnAbrirFormularioMedico"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        app:cardCornerRadius="16dp"
+                        app:cardBackgroundColor="@color/hospital_light_green"
+                        app:strokeColor="@color/hospital_green"
+                        app:strokeWidth="1dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:paddingHorizontal="16dp"
+                            android:paddingVertical="10dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="+ "
+                                android:textColor="@color/hospital_green"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Contratar"
+                                android:textColor="@color/hospital_green"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Barra de Navegación Inferior (Bottom Navigation) -->
+    <LinearLayout
+        android:id="@+id/bottomNavigationContainer"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_alignParentBottom="true"
+        android:background="#F5F5F5"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:elevation="8dp">
+
+        <!-- Inicio -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🏠"
+                android:textSize="20sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Inicio"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <!-- Pacientes -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="👥"
+                android:textSize="20sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pacientes"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <!-- Citas -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📅"
+                android:textSize="20sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Citas"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <!-- Personal (Seleccionado) -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="#E8F5E9"
+            android:clickable="true"
+            android:focusable="true">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🪪"
+                android:textSize="20sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Personal"
+                android:textColor="@color/hospital_green"
+                android:textStyle="bold"
+                android:textSize="11sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

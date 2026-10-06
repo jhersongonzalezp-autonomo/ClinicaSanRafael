@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="background">#F5F5F5</color>
+    <color name="text_primary">#212121</color>
+    <color name="accent_persona">#1976D2</color>
+    <color name="accent_medico">#388E3C</color>
+    <color name="accent_admin">#F57C00</color>
+    <color name="accent_enfermero">#F58C05</color>
+    <color name="login_card_bg">#FFFFFF</color>
+    <color name="login_screen_bg">#EEEEEE</color>
+    <color name="hospital_green">#1B5E20</color>
+    <color name="hospital_light_green">#E8F5E9</color>
+    <color name="text_secondary">#757575</color>
+    <color name="input_bg">#FFFFFF</color>
+    <color name="input_stroke">#E0E0E0</color>
+
+    <!-- Colores para layouts administrativos -->
+    <color name="cm_fondo">#EEEEEE</color>
+    <color name="cm_texto_secundario">#212121</color>
+    <color name="cm_info">#1B5E20</color>
+    <color name="cm_info_contenedor">#E8F5E9</color>
+</resources>

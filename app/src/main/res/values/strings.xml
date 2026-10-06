@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">SanRafael</string>
+    <string name="titulo_app">Personal</string>
+    <string name="seccion_persona">Detalles Persona</string>
+    <string name="seccion_medico">Detalles del Medico </string>
+    <string name="seccion_admin">Detalles del Administrativo</string>
+    <string name="seccion_enfermero">Detalles del Enfermero</string>
+</resources>
