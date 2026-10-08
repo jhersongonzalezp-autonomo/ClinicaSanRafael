@@ -43,8 +43,15 @@ public class Paciente extends Persona {
         System.out.println("Paciente: " + getNombreCompleto() + " | DNI: " + dni + " | N Historia: " + numeroHistoria);
     }
 
-    public String getNumeroHistoria() { return numeroHistoria; }
-    public void setNumeroHistoria(String numeroHistoria) { this.numeroHistoria = numeroHistoria; }
+    public String getNumeroHistoria() {
+        return numeroHistoria;
+    }
 
-    public HistorialMedico getHistorial() { return historial; }
+    public void setNumeroHistoria(String numeroHistoria) {
+        this.numeroHistoria = numeroHistoria;
+    }
+
+    public HistorialMedico getHistorial() {
+        return historial;
+    }
 }
