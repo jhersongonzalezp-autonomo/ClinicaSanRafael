@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.textfield.TextInputEditText;
 
 import com.example.sanrafael.R;
@@ -11,46 +13,54 @@ import com.example.sanrafael.paciente.Paciente;
 
 public class RegistrarPacienteActivity extends AppCompatActivity {
 
-    private TextInputEditText etNombre, etApellido, etDni, etEdad, etNumeroHistoria;
-    private Button btnRegistrar, btnCancelar;
+    private TextInputEditText nombre, apellido, dni, edad, historia;
+    private Button registrar, cancelar;
+    private MaterialToolbar encabezado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar_paciente);
 
-        etNombre = findViewById(R.id.etNombre);
-        etApellido = findViewById(R.id.etApellido);
-        etDni = findViewById(R.id.etDni);
-        etEdad = findViewById(R.id.etEdad);
-        etNumeroHistoria = findViewById(R.id.etNumeroHistoria);
+        encabezado = findViewById(R.id.encabezado);
+        nombre = findViewById(R.id.nombre);
+        apellido = findViewById(R.id.apellido);
+        dni = findViewById(R.id.dni);
+        edad = findViewById(R.id.edad);
+        historia = findViewById(R.id.historia);
 
-        btnRegistrar = findViewById(R.id.btnRegistrar);
-        btnCancelar = findViewById(R.id.btnCancelar);
+        registrar = findViewById(R.id.registrar);
+        cancelar = findViewById(R.id.cancelar);
 
-        btnCancelar.setOnClickListener(v -> finish());
+        if (encabezado != null) {
+            encabezado.setNavigationOnClickListener(v -> finish());
+        }
 
-        btnRegistrar.setOnClickListener(v -> {
-            String nombre = etNombre.getText() != null ? etNombre.getText().toString().trim() : "";
-            String apellido = etApellido.getText() != null ? etApellido.getText().toString().trim() : "";
-            String dni = etDni.getText() != null ? etDni.getText().toString().trim() : "";
-            String edadStr = etEdad.getText() != null ? etEdad.getText().toString().trim() : "";
-            String historia = etNumeroHistoria.getText() != null ? etNumeroHistoria.getText().toString().trim() : "";
+        cancelar.setOnClickListener(v -> finish());
 
-            if (nombre.isEmpty() || apellido.isEmpty() || dni.isEmpty() || edadStr.isEmpty() || historia.isEmpty()) {
+        registrar.setOnClickListener(v -> {
+            String textoNombre = nombre.getText() != null ? nombre.getText().toString().trim() : "";
+            String textoApellido = apellido.getText() != null ? apellido.getText().toString().trim() : "";
+            String textoDni = dni.getText() != null ? dni.getText().toString().trim() : "";
+            String textoEdad = edad.getText() != null ? edad.getText().toString().trim() : "";
+            String textoHistoria = historia.getText() != null ? historia.getText().toString().trim() : "";
+
+            if (textoNombre.isEmpty() || textoApellido.isEmpty() || textoDni.isEmpty() || textoEdad.isEmpty() || textoHistoria.isEmpty()) {
                 Toast.makeText(this, "Por favor complete todos los campos", Toast.LENGTH_SHORT).show();
                 return;
             }
 
             try {
-                int edad = Integer.parseInt(edadStr);
-                Paciente nuevoPaciente = new Paciente(nombre, apellido, "CC", dni, dni, edad, "Colombiano", 1.70, historia);
+                int valorEdad = Integer.parseInt(textoEdad);
+                Paciente nuevoPaciente = new Paciente(textoNombre, textoApellido, "CC", textoDni, textoDni, valorEdad, "Colombiano", 1.70, textoHistoria);
+                
+                Paciente.listaPacientes.add(nuevoPaciente);
                 Paciente.pacienteActual = nuevoPaciente;
 
                 Toast.makeText(this, "Paciente " + nuevoPaciente.getNombreCompleto() + " registrado con éxito.", Toast.LENGTH_LONG).show();
                 finish();
             } catch (NumberFormatException e) {
-                etEdad.setError("Edad inválida");
+                edad.setError("Edad inválida");
             }
         });
     }

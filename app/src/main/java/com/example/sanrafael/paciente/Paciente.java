@@ -4,22 +4,27 @@ import com.example.sanrafael.Persona;
 import com.example.sanrafael.medico.Consulta;
 import com.example.sanrafael.medico.HistorialMedico;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Paciente extends Persona {
 
     private String numeroHistoria;
     private HistorialMedico historial;
 
-    public static Paciente pacienteActual = new Paciente(
-            "Juan", "Pérez", "CC", "106168945", "99887766D", 55, "Colombiano", 1.70, "HC-2024-001"
-    );
+    public static List<Paciente> listaPacientes = new ArrayList<>();
+    public static Paciente pacienteActual;
 
     static {
-        if (pacienteActual.getHistorial().getDiagnosticos().isEmpty()) {
-            pacienteActual.getHistorial().agregarDiagnostico("Dolor torácico agudo de origen coronario probable.");
+        Paciente inicial = new Paciente("Juan", "Pérez", "CC", "106168945", "99887766D", 55, "Colombiano", 1.70, "HC-2024-001");
+        if (inicial.getHistorial().getDiagnosticos().isEmpty()) {
+            inicial.getHistorial().agregarDiagnostico("Dolor torácico agudo de origen coronario probable.");
         }
-        if (pacienteActual.getHistorial().getTratamientos().isEmpty()) {
-            pacienteActual.getHistorial().agregarTratamiento("Aspirina 100mg cada 24 horas");
+        if (inicial.getHistorial().getTratamientos().isEmpty()) {
+            inicial.getHistorial().agregarTratamiento("Aspirina 100mg cada 24 horas");
         }
+        listaPacientes.add(inicial);
+        pacienteActual = inicial;
     }
 
     public Paciente(String nombre, String apellido, String tipoIdentidad, String identidad, String dni, int edad, String nacionalidad, double estatura, String numeroHistoria) {

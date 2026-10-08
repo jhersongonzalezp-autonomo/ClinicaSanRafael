@@ -2,12 +2,23 @@ package com.example.sanrafael.medico;
 
 import com.example.sanrafael.paciente.Paciente;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Consulta {
 
     private String fecha;
     private String motivo;
     private Medico medico;
     private Paciente paciente;
+
+    public static List<Consulta> listaConsultas = new ArrayList<>();
+
+    static {
+        Medico med = new Medico("Laura", "Gómez", "DNI", "12345678", 40, "Colombiana", 1.65, "M-001", 5000.0, "Cardióloga", "COL-98765");
+        Consulta inicial = new Consulta("2025-09-10", "Dolor en el pecho", med, Paciente.pacienteActual);
+        listaConsultas.add(inicial);
+    }
 
     public Consulta(String fecha, String motivo, Medico medico, Paciente paciente) {
         this.fecha = fecha;
@@ -50,6 +61,8 @@ public class Consulta {
 
     public void realizar() {
         System.out.println("Realizando consulta el " + fecha + " por el motivo: " + motivo);
-        System.out.println("Atendido por: Dr. " + medico.getApellido() + " | Paciente: " + paciente.getNombreCompleto());
+        if (medico != null && paciente != null) {
+            System.out.println("Atendido por: Dr. " + medico.getApellido() + " | Paciente: " + paciente.getNombreCompleto());
+        }
     }
 }
