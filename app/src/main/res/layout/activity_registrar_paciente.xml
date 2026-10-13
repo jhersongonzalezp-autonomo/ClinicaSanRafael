@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- new Paciente(nombre, apellido, dni, edad, numeroHistoria) + new HistorialMedico() → CentroMedico.registrarPaciente(Paciente) -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,14 +6,17 @@
     android:layout_height="match_parent"
     android:background="@color/cm_fondo"
     android:orientation="vertical"
-    tools:context=".RegistrarPacienteActivity">
+    tools:context=".administrativo.RegistrarPacienteActivity">
 
     <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/encabezado"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/cm_fondo"
         app:title="Registrar paciente"
+        app:titleTextColor="@color/black"
+        app:navigationIcon="@android:drawable/ic_menu_revert"
+        app:navigationIconTint="@color/black"
         app:navigationContentDescription="Volver"
         app:titleTextAppearance="@style/TextAppearance.Material3.TitleLarge" />
 
@@ -43,8 +45,9 @@
                     android:layout_marginBottom="8dp"
                     android:text="Datos personales"
                     android:textAllCaps="true"
-                    android:textAppearance="@style/TextAppearance.Material3.LabelLarge"
-                    android:textColor="@color/cm_texto_secundario" />
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textAppearance="@style/TextAppearance.Material3.LabelLarge" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -54,70 +57,79 @@
                     android:orientation="horizontal">
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/tilNombre"
                         style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="6dp"
                         android:layout_weight="1"
-                        android:hint="Nombre">
+                        android:hint="Nombre"
+                        app:hintTextColor="@color/black">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/etNombre"
+                            android:id="@+id/nombre"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="text"
+                            android:textColor="@color/black"
+                            android:textColorHint="#444444"
                             tools:text="Juan" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/tilApellido"
                         style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="6dp"
                         android:layout_weight="1"
-                        android:hint="Apellido">
+                        android:hint="Apellido"
+                        app:hintTextColor="@color/black">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/etApellido"
+                            android:id="@+id/apellido"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="text"
+                            android:textColor="@color/black"
+                            android:textColorHint="#444444"
                             tools:text="Pérez" />
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/tilDni"
                     style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="12dp"
-                    android:hint="DNI">
+                    android:hint="DNI"
+                    app:hintTextColor="@color/black">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/etDni"
+                        android:id="@+id/dni"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="text"
+                        android:textColor="@color/black"
+                        android:textColorHint="#444444"
                         tools:text="99887766D" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/tilEdad"
                     style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
                     android:hint="Edad"
-                    app:suffixText="años">
+                    app:hintTextColor="@color/black"
+                    app:suffixText="años"
+                    app:suffixTextColor="@color/black">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/etEdad"
+                        android:id="@+id/edad"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="number"
+                        android:textColor="@color/black"
+                        android:textColorHint="#444444"
                         tools:text="55" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -128,27 +140,29 @@
                     android:layout_marginBottom="8dp"
                     android:text="Historia clínica"
                     android:textAllCaps="true"
-                    android:textAppearance="@style/TextAppearance.Material3.LabelLarge"
-                    android:textColor="@color/cm_texto_secundario" />
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textAppearance="@style/TextAppearance.Material3.LabelLarge" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/tilNumeroHistoria"
                     style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="12dp"
-                    android:hint="Número de historia">
+                    android:hint="Número de historia"
+                    app:hintTextColor="@color/black">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/etNumeroHistoria"
+                        android:id="@+id/historia"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="text"
+                        android:textColor="@color/black"
+                        android:textColorHint="#444444"
                         tools:text="HC-2024-001" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cardInfoHistorial"
                     style="@style/Widget.Material3.CardView.Filled"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -160,7 +174,9 @@
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
                         android:padding="14dp"
-                        android:text="📋 Al guardar se crea un historial médico vacío para el paciente."
+                        android:text="📋 Al guardar se crea un historial médico para el paciente."
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
                         android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
                 </com.google.android.material.card.MaterialCardView>
 
@@ -176,21 +192,29 @@
                     android:orientation="horizontal">
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btnCancelar"
+                        android:id="@+id/cancelar"
                         style="@style/Widget.Material3.Button.OutlinedButton"
                         android:layout_width="0dp"
                         android:layout_height="56dp"
                         android:layout_marginEnd="6dp"
                         android:layout_weight="1"
-                        android:text="Cancelar" />
+                        android:text="Cancelar"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        app:strokeColor="@color/black" />
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btnRegistrar"
+                        android:id="@+id/registrar"
                         android:layout_width="0dp"
                         android:layout_height="56dp"
                         android:layout_marginStart="6dp"
                         android:layout_weight="1"
-                        android:text="Registrar" />
+                        android:backgroundTint="@color/hospital_green"
+                        android:text="Registrar"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>

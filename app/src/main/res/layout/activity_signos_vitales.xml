@@ -22,21 +22,21 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_marginBottom="16dp"
                 android:gravity="center_vertical"
-                android:layout_marginBottom="16dp">
+                android:orientation="horizontal">
 
                 <ImageView
                     android:id="@+id/btnBack"
                     android:layout_width="32dp"
                     android:layout_height="32dp"
-                    android:src="@android:drawable/ic_menu_revert"
-                    app:tint="@color/text_primary"
-                    android:contentDescription="Volver"
-                    android:clickable="true"
-                    android:focusable="true"
+                    android:layout_marginEnd="8dp"
                     android:background="?attr/selectableItemBackgroundBorderless"
-                    android:layout_marginEnd="8dp" />
+                    android:clickable="true"
+                    android:contentDescription="Volver"
+                    android:focusable="true"
+                    android:src="@android:drawable/ic_menu_revert"
+                    app:tint="@color/text_primary" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -51,48 +51,49 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="16dp"
+                android:layout_marginBottom="16dp"
                 app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="16dp"
                 app:strokeColor="@color/input_stroke"
-                app:strokeWidth="1dp"
-                android:layout_marginBottom="16dp">
+                app:strokeWidth="1dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
                     android:gravity="center_vertical"
+                    android:orientation="horizontal"
                     android:padding="16dp">
 
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        app:cardCornerRadius="20dp"
                         app:cardBackgroundColor="#FFF3E0"
+                        app:cardCornerRadius="20dp"
                         app:strokeWidth="0dp">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center"
                             android:text="JP"
                             android:textColor="@color/accent_enfermero"
-                            android:textStyle="bold"
-                            android:layout_gravity="center" />
+                            android:textStyle="bold" />
                     </com.google.android.material.card.MaterialCardView>
 
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
                         android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:layout_marginStart="12dp">
+                        android:orientation="vertical">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Juan Pérez"
                             android:textColor="@color/text_primary"
-                            android:textStyle="bold"
-                            android:textSize="15sp" />
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -108,21 +109,21 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
                 android:text="REGISTRO"
                 android:textColor="@color/text_secondary"
                 android:textSize="12sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="12dp" />
+                android:textStyle="bold" />
 
             <!-- Formulario de Signos Vitales Card -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="20dp"
+                android:layout_marginBottom="16dp"
                 app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="20dp"
                 app:strokeColor="@color/input_stroke"
-                app:strokeWidth="1dp"
-                android:layout_marginBottom="16dp">
+                app:strokeWidth="1dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -134,35 +135,37 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
+                        android:layout_marginBottom="12dp"
                         android:baselineAligned="false"
-                        android:layout_marginBottom="12dp">
+                        android:orientation="horizontal">
 
                         <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
                             android:layout_marginEnd="6dp"
+                            android:layout_weight="1"
                             android:hint="Presión arterial"
-                            app:suffixText="mmHg"
-                            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense">
+                            app:suffixText="mmHg">
+
                             <com.google.android.material.textfield.TextInputEditText
                                 android:id="@+id/etPresion"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="120/80"
                                 android:inputType="text"
-                                android:maxLines="1" />
+                                android:maxLines="1"
+                                android:text="120/80" />
                         </com.google.android.material.textfield.TextInputLayout>
 
                         <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
                             android:layout_marginStart="6dp"
+                            android:layout_weight="1"
                             android:hint="Frec. cardíaca"
-                            app:suffixText="lpm"
-                            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense">
+                            app:suffixText="lpm">
+
                             <com.google.android.material.textfield.TextInputEditText
                                 android:id="@+id/etFrecCardiaca"
                                 android:layout_width="match_parent"
@@ -176,18 +179,19 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
+                        android:layout_marginBottom="12dp"
                         android:baselineAligned="false"
-                        android:layout_marginBottom="12dp">
+                        android:orientation="horizontal">
 
                         <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
                             android:layout_marginEnd="6dp"
+                            android:layout_weight="1"
                             android:hint="Temperatura"
-                            app:suffixText="°C"
-                            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense">
+                            app:suffixText="°C">
+
                             <com.google.android.material.textfield.TextInputEditText
                                 android:id="@+id/etTemperatura"
                                 android:layout_width="match_parent"
@@ -197,13 +201,14 @@
                         </com.google.android.material.textfield.TextInputLayout>
 
                         <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
                             android:layout_marginStart="6dp"
+                            android:layout_weight="1"
                             android:hint="Saturación O₂"
-                            app:suffixText="%"
-                            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense">
+                            app:suffixText="%">
+
                             <com.google.android.material.textfield.TextInputEditText
                                 android:id="@+id/etSaturacion"
                                 android:layout_width="match_parent"
@@ -217,18 +222,19 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
+                        android:layout_marginBottom="12dp"
                         android:baselineAligned="false"
-                        android:layout_marginBottom="12dp">
+                        android:orientation="horizontal">
 
                         <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
                             android:layout_marginEnd="6dp"
+                            android:layout_weight="1"
                             android:hint="Frec. respiratoria"
-                            app:suffixText="rpm"
-                            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense">
+                            app:suffixText="rpm">
+
                             <com.google.android.material.textfield.TextInputEditText
                                 android:id="@+id/etFrecRespiratoria"
                                 android:layout_width="match_parent"
@@ -238,13 +244,14 @@
                         </com.google.android.material.textfield.TextInputLayout>
 
                         <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
                             android:layout_marginStart="6dp"
+                            android:layout_weight="1"
                             android:hint="Peso"
-                            app:suffixText="kg"
-                            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense">
+                            app:suffixText="kg">
+
                             <com.google.android.material.textfield.TextInputEditText
                                 android:id="@+id/etPeso"
                                 android:layout_width="match_parent"
@@ -256,10 +263,11 @@
 
                     <!-- Observaciones -->
                     <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Observaciones"
-                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense">
+                        android:hint="Observaciones">
+
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/etObservaciones"
                             android:layout_width="match_parent"
@@ -276,12 +284,12 @@
                 android:id="@+id/btnGuardarSignos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="@color/hospital_green"
                 android:paddingVertical="12dp"
                 android:text="✓ Guardar signos"
-                android:textSize="16sp"
-                android:backgroundTint="@color/hospital_green"
                 android:textColor="@color/white"
-                android:layout_marginBottom="16dp" />
+                android:textSize="16sp" />
 
         </LinearLayout>
     </ScrollView>
@@ -293,24 +301,26 @@
         android:layout_height="64dp"
         android:layout_alignParentBottom="true"
         android:background="#F5F5F5"
-        android:orientation="horizontal"
+        android:elevation="8dp"
         android:gravity="center_vertical"
-        android:elevation="8dp">
+        android:orientation="horizontal">
 
         <LinearLayout
             android:id="@+id/navTurno"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
             android:clickable="true"
-            android:focusable="true">
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="⏱️"
                 android:textSize="18sp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -324,21 +334,23 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="vertical"
+            android:background="#FFF3E0"
             android:gravity="center"
-            android:background="#FFF3E0">
+            android:orientation="vertical">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="⚡"
                 android:textSize="18sp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Signos"
                 android:textColor="@color/accent_enfermero"
-                android:textStyle="bold"
-                android:textSize="11sp" />
+                android:textSize="11sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
@@ -346,15 +358,17 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
             android:clickable="true"
-            android:focusable="true">
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="💊"
                 android:textSize="18sp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
