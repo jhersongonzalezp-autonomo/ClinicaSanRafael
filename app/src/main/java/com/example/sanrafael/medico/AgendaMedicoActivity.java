@@ -70,17 +70,6 @@ public class AgendaMedicoActivity extends AppCompatActivity {
             info.setText(pacienteActual.getNumeroHistoria() + " · " + pacienteActual.getEdad() + " años");
         }
 
-        iniciar.setOnClickListener(v -> {
-            Intent intent = new Intent(AgendaMedicoActivity.this, RealizarConsultaActivity.class);
-            intent.putExtra("FECHA_CONSULTA", fechaSeleccionada);
-            startActivity(intent);
-        });
-
-        opcionConsulta.setOnClickListener(v -> {
-            Intent intent = new Intent(AgendaMedicoActivity.this, RealizarConsultaActivity.class);
-            startActivity(intent);
-        });
-
         opcionHistorial.setOnClickListener(v -> {
             Intent intent = new Intent(AgendaMedicoActivity.this, HistorialMedicoActivity.class);
             startActivity(intent);

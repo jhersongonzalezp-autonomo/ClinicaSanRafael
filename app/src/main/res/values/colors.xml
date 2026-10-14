@@ -17,9 +17,16 @@
     <color name="input_bg">#FFFFFF</color>
     <color name="input_stroke">#E0E0E0</color>
 
-    <!-- Colores para layouts administrativos -->
-    <color name="cm_fondo">#EEEEEE</color>
+    <!-- Colores oficiales de la guía del curso (cm_*) -->
+    <color name="cm_primario">#0E6E5E</color>
+    <color name="cm_primario_contenedor">#E0F2F1</color>
+    <color name="cm_fondo">#F3F5F2</color>
+    <color name="cm_superficie">#FFFFFF</color>
+    <color name="cm_texto">#000000</color>
     <color name="cm_texto_secundario">#000000</color>
+    <color name="cm_borde">#E0E0E0</color>
+    <color name="cm_alerta">#C62828</color>
+    <color name="cm_alerta_contenedor">#FFEBEE</color>
     <color name="cm_info">#1B5E20</color>
     <color name="cm_info_contenedor">#E8F5E9</color>
 </resources>

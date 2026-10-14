@@ -17,43 +17,47 @@ import com.example.sanrafael.medico.AgendaMedicoActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private TextInputEditText nombreUsuario;
-    private TextInputEditText Contraseña;
-    private MaterialCardView cardMedico;
-    private MaterialCardView cardEnfermero;
-    private MaterialCardView cardAdministrativo;
-    private MaterialCardView cardAdministrador;
+    private TextInputEditText etIdEmpleado;
+    private TextInputEditText etContrasena;
+    private MaterialCardView cardRolMedico;
+    private MaterialCardView cardRolEnfermero;
+    private MaterialCardView cardRolAdministrativo;
+    private MaterialCardView cardRolAdministrador;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        nombreUsuario = findViewById(R.id.nombreUsuario);
-        Contraseña = findViewById(R.id.Contraseña);
-        cardMedico = findViewById(R.id.cardMedico);
-        cardEnfermero = findViewById(R.id.cardEnfermero);
-        cardAdministrativo = findViewById(R.id.cardAdministrativo);
-        cardAdministrador = findViewById(R.id.cardAdministrador);
+        etIdEmpleado = findViewById(R.id.etIdEmpleado);
+        etContrasena = findViewById(R.id.etContrasena);
+        cardRolMedico = findViewById(R.id.cardRolMedico);
+        cardRolEnfermero = findViewById(R.id.cardRolEnfermero);
+        cardRolAdministrativo = findViewById(R.id.cardRolAdministrativo);
+        cardRolAdministrador = findViewById(R.id.cardRolAdministrador);
 
-        cardMedico.setOnClickListener(v -> intentarLogin("medico"));
-        cardEnfermero.setOnClickListener(v -> intentarLogin("enfermero"));
-        cardAdministrativo.setOnClickListener(v -> intentarLogin("administrativo"));
-        cardAdministrador.setOnClickListener(v -> intentarLogin("administrador"));
+        if (cardRolMedico != null) cardRolMedico.setOnClickListener(v -> intentarLogin("medico"));
+        if (cardRolEnfermero != null) cardRolEnfermero.setOnClickListener(v -> intentarLogin("enfermero"));
+        if (cardRolAdministrativo != null) cardRolAdministrativo.setOnClickListener(v -> intentarLogin("administrativo"));
+        if (cardRolAdministrador != null) cardRolAdministrador.setOnClickListener(v -> intentarLogin("administrador"));
     }
 
     private void intentarLogin(String rolSeleccionado) {
-        String usuario = nombreUsuario.getText() != null ? nombreUsuario.getText().toString().trim() : "";
-        String contraseña = Contraseña.getText() != null ? Contraseña.getText().toString().trim() : "";
+        String usuario = etIdEmpleado != null && etIdEmpleado.getText() != null ? etIdEmpleado.getText().toString().trim() : "";
+        String contraseña = etContrasena != null && etContrasena.getText() != null ? etContrasena.getText().toString().trim() : "";
 
         if (TextUtils.isEmpty(usuario)) {
-            nombreUsuario.setError("Escriba su ID de empleado para ingresar");
-            nombreUsuario.requestFocus();
+            if (etIdEmpleado != null) {
+                etIdEmpleado.setError("Escriba su ID de empleado para ingresar");
+                etIdEmpleado.requestFocus();
+            }
             return;
         }
         if (TextUtils.isEmpty(contraseña)) {
-            Contraseña.setError("Escriba su contraseña para ingresar");
-            Contraseña.requestFocus();
+            if (etContrasena != null) {
+                etContrasena.setError("Escriba su contraseña para ingresar");
+                etContrasena.requestFocus();
+            }
             return;
         }
 
