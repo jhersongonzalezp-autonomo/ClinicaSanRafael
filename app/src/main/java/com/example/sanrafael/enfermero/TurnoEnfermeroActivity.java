@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sanrafael.R;
 
@@ -12,6 +14,7 @@ public class TurnoEnfermeroActivity extends AppCompatActivity {
 
     private Button btnIrSignos, btnIrMedicar;
     private LinearLayout navSignos, navMedicacion;
+    private RecyclerView rvPacientesTurno;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +25,11 @@ public class TurnoEnfermeroActivity extends AppCompatActivity {
         btnIrMedicar = findViewById(R.id.btnIrMedicar);
         navSignos = findViewById(R.id.navSignos);
         navMedicacion = findViewById(R.id.navMedicacion);
+
+        rvPacientesTurno = findViewById(R.id.rvPacientesTurno);
+        if (rvPacientesTurno != null) {
+            rvPacientesTurno.setLayoutManager(new LinearLayoutManager(this));
+        }
 
         if (btnIrSignos != null) {
             btnIrSignos.setOnClickListener(v -> {

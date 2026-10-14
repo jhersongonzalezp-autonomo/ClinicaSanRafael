@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sanrafael.R;
 import com.example.sanrafael.paciente.Paciente;
@@ -18,6 +20,7 @@ public class AgendaMedicoActivity extends AppCompatActivity {
 
     private Button iniciar;
     private LinearLayout opcionConsulta, opcionHistorial;
+    private RecyclerView rvConsultas;
 
     private MaterialCardView lunes, martes, miercoles, jueves, viernes, sabado;
     private TextView labelLunes, numLunes, labelMartes, numMartes, labelMiercoles, numMiercoles;
@@ -36,6 +39,11 @@ public class AgendaMedicoActivity extends AppCompatActivity {
         iniciar = findViewById(R.id.iniciar);
         opcionConsulta = findViewById(R.id.opcionConsulta);
         opcionHistorial = findViewById(R.id.opcionHistorial);
+
+        rvConsultas = findViewById(R.id.rvConsultas);
+        if (rvConsultas != null) {
+            rvConsultas.setLayoutManager(new LinearLayoutManager(this));
+        }
 
         fecha = findViewById(R.id.fecha);
         paciente = findViewById(R.id.paciente);

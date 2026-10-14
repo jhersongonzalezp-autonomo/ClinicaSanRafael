@@ -66,23 +66,19 @@ public class LoginActivity extends AppCompatActivity {
         switch (rolSeleccionado) {
             case "medico":
                 ingresoValido = (usuario.equalsIgnoreCase("medico") && contraseña.equals("medico123"))
-                        || (usuario.equalsIgnoreCase("admin") && contraseña.equals("admin123"))
-                        || usuario.length() >= 2;
+                        ;
                 break;
             case "enfermero":
                 ingresoValido = (usuario.equalsIgnoreCase("enfermero") && contraseña.equals("enfermero123"))
-                        || (usuario.equalsIgnoreCase("admin") && contraseña.equals("admin123"))
-                        || usuario.length() >= 2;
+                        ;
                 break;
             case "administrativo":
                 ingresoValido = (usuario.equalsIgnoreCase("administrativo") && contraseña.equals("admin123"))
-                        || (usuario.equalsIgnoreCase("admin") && contraseña.equals("admin123"))
-                        || usuario.length() >= 2;
+                        ;
                 break;
             case "administrador":
                 ingresoValido = (usuario.equalsIgnoreCase("administrador") && contraseña.equals("administrador123"))
-                        || (usuario.equalsIgnoreCase("admin") && contraseña.equals("admin123"))
-                        || usuario.length() >= 2;
+                        ;
                 break;
         }
 
