@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/login_screen_bg"
+    android:background="@color/cm_fondo"
     android:fillViewport="true">
 
     <LinearLayout
@@ -13,7 +13,6 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- Tarjeta Principal Blanca con Esquinas Redondeadas -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -30,148 +29,116 @@
                 android:orientation="vertical"
                 android:padding="24dp">
 
-                <!-- Icono Verde con Signo + -->
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="52dp"
-                    android:layout_height="52dp"
-                    android:layout_marginBottom="16dp"
-                    app:cardBackgroundColor="@color/hospital_green"
-                    app:cardCornerRadius="16dp"
-                    app:strokeWidth="0dp">
+                <!-- Logo ImageView (Exigido en L1) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="16dp">
+
+                    <ImageView
+                        android:id="@+id/logoClinica"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:background="@color/cm_primario"
+                        android:padding="14dp"
+                        android:contentDescription="Logo Clínica San Rafael"
+                        android:src="@drawable/ic_launcher_foreground" />
+
+                    <TextView
+                        android:id="@+id/tvNombreCentro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Clínica San Rafael"
+                        android:textColor="@color/black"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="+"
-                        android:textColor="@color/white"
-                        android:textSize="30sp"
-                        android:textStyle="bold" />
-                </com.google.android.material.card.MaterialCardView>
-
-                <!-- Título -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    android:text="Clínica San Rafael"
-                    android:textColor="@color/text_primary"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
-
-                <!-- Subtítulo -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:text="Ingresa con tu ID de empleado y elige tu rol."
-                    android:textColor="@color/text_secondary"
-                    android:textSize="14sp" />
-
-                <!-- Etiqueta ID de empleado -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="6dp"
-                    android:text="ID de empleado"
-                    android:textColor="@color/text_primary"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
+                        android:layout_marginTop="4dp"
+                        android:text="Ingresa con tu ID de empleado y elige tu rol."
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+                </LinearLayout>
 
                 <!-- Campo ID de empleado -->
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilIdEmpleado"
                     style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    app:hintEnabled="false">
+                    android:layout_marginBottom="12dp"
+                    android:hint="ID de empleado"
+                    app:hintTextColor="@color/black">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/nombreUsuario"
+                        android:id="@+id/etIdEmpleado"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="nombre de usuario"
                         android:inputType="text"
                         android:maxLines="1"
-                        android:textColor="@color/text_primary"
-                        android:textColorHint="@color/text_secondary" />
+                        android:textColor="@color/black" />
                 </com.google.android.material.textfield.TextInputLayout>
-
-                <!-- Etiqueta Contraseña -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="6dp"
-                    android:text="Contraseña"
-                    android:textColor="@color/text_primary"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
 
                 <!-- Campo Contraseña -->
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilContrasena"
                     style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
-                    app:hintEnabled="false"
-                    app:passwordToggleEnabled="true">
+                    android:hint="Contraseña"
+                    app:hintTextColor="@color/black"
+                    app:endIconMode="password_toggle">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/Contraseña"
+                        android:id="@+id/etContrasena"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Ingresa tu contraseña"
                         android:inputType="textPassword"
                         android:maxLines="1"
-                        android:textColor="@color/text_primary"
-                        android:textColorHint="@color/text_secondary" />
+                        android:textColor="@color/black" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- Sección Sección Roles -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="12dp"
                     android:text="INGRESAR COMO"
-                    android:textColor="@color/text_secondary"
+                    android:textColor="@color/black"
                     android:textSize="12sp"
                     android:textStyle="bold" />
 
                 <!-- Card de Rol: Médico -->
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cardMedico"
+                    android:id="@+id/cardRolMedico"
+                    style="@style/Widget.Material3.CardView.Outlined"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:clickable="true"
                     android:focusable="true"
-                    android:foreground="?android:attr/selectableItemBackground"
                     app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="16dp"
-                    app:strokeColor="@color/input_stroke"
-                    app:strokeWidth="1dp">
+                    app:strokeColor="@color/input_stroke">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
                         android:orientation="horizontal"
-                        android:padding="12dp">
+                        android:padding="16dp">
 
-                        <com.google.android.material.card.MaterialCardView
-                            android:layout_width="44dp"
-                            android:layout_height="44dp"
-                            app:cardBackgroundColor="@color/hospital_light_green"
-                            app:cardCornerRadius="10dp"
-                            app:strokeWidth="0dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="🩺"
-                                android:textSize="20sp" />
-                        </com.google.android.material.card.MaterialCardView>
+                        <TextView
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:gravity="center"
+                            android:text="🩺"
+                            android:textSize="24sp" />
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -185,15 +152,16 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Médico"
-                                android:textColor="@color/text_primary"
+                                android:textColor="@color/black"
                                 android:textSize="15sp"
-                                android:textStyle="bold" />
+                                android:textStyle="bold"
+                                android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Agenda, consulta, diagnóstico y prescripción"
-                                android:textColor="@color/text_secondary"
+                                android:textColor="@color/black"
                                 android:textSize="12sp" />
                         </LinearLayout>
 
@@ -201,47 +169,37 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="›"
-                            android:textColor="@color/text_secondary"
-                            android:textSize="24sp"
+                            android:textColor="@color/black"
+                            android:textSize="22sp"
                             android:textStyle="bold" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
                 <!-- Card de Rol: Enfermero -->
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cardEnfermero"
+                    android:id="@+id/cardRolEnfermero"
+                    style="@style/Widget.Material3.CardView.Outlined"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:clickable="true"
                     android:focusable="true"
-                    android:foreground="?android:attr/selectableItemBackground"
                     app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="16dp"
-                    app:strokeColor="@color/input_stroke"
-                    app:strokeWidth="1dp">
+                    app:strokeColor="@color/input_stroke">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
                         android:orientation="horizontal"
-                        android:padding="12dp">
+                        android:padding="16dp">
 
-                        <com.google.android.material.card.MaterialCardView
-                            android:layout_width="44dp"
-                            android:layout_height="44dp"
-                            app:cardBackgroundColor="@color/hospital_light_green"
-                            app:cardCornerRadius="10dp"
-                            app:strokeWidth="0dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="📈"
-                                android:textSize="20sp" />
-                        </com.google.android.material.card.MaterialCardView>
+                        <TextView
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:gravity="center"
+                            android:text="📈"
+                            android:textSize="24sp" />
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -255,15 +213,16 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Enfermero"
-                                android:textColor="@color/text_primary"
+                                android:textColor="@color/black"
                                 android:textSize="15sp"
-                                android:textStyle="bold" />
+                                android:textStyle="bold"
+                                android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Signos vitales y administración de medicamentos"
-                                android:textColor="@color/text_secondary"
+                                android:textColor="@color/black"
                                 android:textSize="12sp" />
                         </LinearLayout>
 
@@ -271,47 +230,37 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="›"
-                            android:textColor="@color/text_secondary"
-                            android:textSize="24sp"
+                            android:textColor="@color/black"
+                            android:textSize="22sp"
                             android:textStyle="bold" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
                 <!-- Card de Rol: Administrativo -->
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cardAdministrativo"
+                    android:id="@+id/cardRolAdministrativo"
+                    style="@style/Widget.Material3.CardView.Outlined"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:clickable="true"
                     android:focusable="true"
-                    android:foreground="?android:attr/selectableItemBackground"
                     app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="16dp"
-                    app:strokeColor="@color/input_stroke"
-                    app:strokeWidth="1dp">
+                    app:strokeColor="@color/input_stroke">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
                         android:orientation="horizontal"
-                        android:padding="12dp">
+                        android:padding="16dp">
 
-                        <com.google.android.material.card.MaterialCardView
-                            android:layout_width="44dp"
-                            android:layout_height="44dp"
-                            app:cardBackgroundColor="@color/hospital_light_green"
-                            app:cardCornerRadius="10dp"
-                            app:strokeWidth="0dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="📋"
-                                android:textSize="20sp" />
-                        </com.google.android.material.card.MaterialCardView>
+                        <TextView
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:gravity="center"
+                            android:text="📋"
+                            android:textSize="24sp" />
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -325,15 +274,16 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Administrativo"
-                                android:textColor="@color/text_primary"
+                                android:textColor="@color/black"
                                 android:textSize="15sp"
-                                android:textStyle="bold" />
+                                android:textStyle="bold"
+                                android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Pacientes, citas, facturas y gestión"
-                                android:textColor="@color/text_secondary"
+                                android:textColor="@color/black"
                                 android:textSize="12sp" />
                         </LinearLayout>
 
@@ -341,47 +291,37 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="›"
-                            android:textColor="@color/text_secondary"
-                            android:textSize="24sp"
+                            android:textColor="@color/black"
+                            android:textSize="22sp"
                             android:textStyle="bold" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
                 <!-- Card de Rol: Administrador -->
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cardAdministrador"
+                    android:id="@+id/cardRolAdministrador"
+                    style="@style/Widget.Material3.CardView.Outlined"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="4dp"
                     android:clickable="true"
                     android:focusable="true"
-                    android:foreground="?android:attr/selectableItemBackground"
                     app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="16dp"
-                    app:strokeColor="@color/input_stroke"
-                    app:strokeWidth="1dp">
+                    app:strokeColor="@color/input_stroke">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
                         android:orientation="horizontal"
-                        android:padding="12dp">
+                        android:padding="16dp">
 
-                        <com.google.android.material.card.MaterialCardView
-                            android:layout_width="44dp"
-                            android:layout_height="44dp"
-                            app:cardBackgroundColor="@color/hospital_light_green"
-                            app:cardCornerRadius="10dp"
-                            app:strokeWidth="0dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="👨‍💼"
-                                android:textSize="20sp" />
-                        </com.google.android.material.card.MaterialCardView>
+                        <TextView
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:gravity="center"
+                            android:text="👨‍💼"
+                            android:textSize="24sp" />
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -395,15 +335,17 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Administrador"
-                                android:textColor="@color/text_primary"
+                                android:textColor="@color/black"
+                                android:textColorHighlight="@color/black"
                                 android:textSize="15sp"
-                                android:textStyle="bold" />
+                                android:textStyle="bold"
+                                android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Gestión global de personal y sistema"
-                                android:textColor="@color/text_secondary"
+                                android:textColor="@color/black"
                                 android:textSize="12sp" />
                         </LinearLayout>
 
@@ -411,10 +353,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="›"
-                            android:textColor="@color/text_secondary"
-                            android:textSize="24sp"
+                            android:textColor="@color/black"
+                            android:textSize="22sp"
                             android:textStyle="bold" />
-
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 

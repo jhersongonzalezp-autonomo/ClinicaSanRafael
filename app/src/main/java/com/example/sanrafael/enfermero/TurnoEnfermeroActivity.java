@@ -23,24 +23,32 @@ public class TurnoEnfermeroActivity extends AppCompatActivity {
         navSignos = findViewById(R.id.navSignos);
         navMedicacion = findViewById(R.id.navMedicacion);
 
-        btnIrSignos.setOnClickListener(v -> {
-            Intent intent = new Intent(TurnoEnfermeroActivity.this, SignosVitalesActivity.class);
-            startActivity(intent);
-        });
+        if (btnIrSignos != null) {
+            btnIrSignos.setOnClickListener(v -> {
+                Intent intent = new Intent(TurnoEnfermeroActivity.this, SignosVitalesActivity.class);
+                startActivity(intent);
+            });
+        }
 
-        btnIrMedicar.setOnClickListener(v -> {
-            Intent intent = new Intent(TurnoEnfermeroActivity.this, AdministrarMedicamentoActivity.class);
-            startActivity(intent);
-        });
+        if (btnIrMedicar != null) {
+            btnIrMedicar.setOnClickListener(v -> {
+                Intent intent = new Intent(TurnoEnfermeroActivity.this, AdministrarMedicamentoActivity.class);
+                startActivity(intent);
+            });
+        }
 
-        navSignos.setOnClickListener(v -> {
-            Intent intent = new Intent(TurnoEnfermeroActivity.this, SignosVitalesActivity.class);
-            startActivity(intent);
-        });
+        if (navSignos != null) {
+            navSignos.setOnClickListener(v -> {
+                Intent intent = new Intent(TurnoEnfermeroActivity.this, SignosVitalesActivity.class);
+                startActivity(intent);
+            });
+        }
 
-        navMedicacion.setOnClickListener(v -> {
-            Intent intent = new Intent(TurnoEnfermeroActivity.this, AdministrarMedicamentoActivity.class);
-            startActivity(intent);
-        });
+        if (navMedicacion != null) {
+            navMedicacion.setOnClickListener(v -> {
+                Intent intent = new Intent(TurnoEnfermeroActivity.this, AdministrarMedicamentoActivity.class);
+                startActivity(intent);
+            });
+        }
     }
 }

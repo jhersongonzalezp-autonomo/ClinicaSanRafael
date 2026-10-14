@@ -47,21 +47,29 @@ public class AdminInicioActivity extends AppCompatActivity {
             salir.setOnClickListener(v -> finish());
         }
 
-        registrarPaciente.setOnClickListener(v -> {
-            startActivity(new Intent(AdminInicioActivity.this, RegistrarPacienteActivity.class));
-        });
+        if (registrarPaciente != null) {
+            registrarPaciente.setOnClickListener(v -> {
+                startActivity(new Intent(AdminInicioActivity.this, RegistrarPacienteActivity.class));
+            });
+        }
 
-        agendarCita.setOnClickListener(v -> {
-            startActivity(new Intent(AdminInicioActivity.this, AgendarCitaActivity.class));
-        });
+        if (agendarCita != null) {
+            agendarCita.setOnClickListener(v -> {
+                startActivity(new Intent(AdminInicioActivity.this, AgendarCitaActivity.class));
+            });
+        }
 
-        verPacientes.setOnClickListener(v -> {
-            startActivity(new Intent(AdminInicioActivity.this, PacientesActivity.class));
-        });
+        if (verPacientes != null) {
+            verPacientes.setOnClickListener(v -> {
+                startActivity(new Intent(AdminInicioActivity.this, PacientesActivity.class));
+            });
+        }
 
-        generarFactura.setOnClickListener(v -> {
-            startActivity(new Intent(AdminInicioActivity.this, FacturaActivity.class));
-        });
+        if (generarFactura != null) {
+            generarFactura.setOnClickListener(v -> {
+                startActivity(new Intent(AdminInicioActivity.this, FacturaActivity.class));
+            });
+        }
 
         if (tarjetaProximaCita != null) {
             tarjetaProximaCita.setOnClickListener(v -> {
