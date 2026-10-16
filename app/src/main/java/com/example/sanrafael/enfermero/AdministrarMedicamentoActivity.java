@@ -32,19 +32,25 @@ public class AdministrarMedicamentoActivity extends AppCompatActivity {
         navTurno = findViewById(R.id.navTurno);
         navSignos = findViewById(R.id.navSignos);
 
-        btnBack.setOnClickListener(v -> finish());
+        if (btnBack != null) {
+            btnBack.setOnClickListener(v -> finish());
+        }
 
-        navTurno.setOnClickListener(v -> {
-            Intent intent = new Intent(AdministrarMedicamentoActivity.this, TurnoEnfermeroActivity.class);
-            startActivity(intent);
-            finish();
-        });
+        if (navTurno != null) {
+            navTurno.setOnClickListener(v -> {
+                Intent intent = new Intent(AdministrarMedicamentoActivity.this, TurnoEnfermeroActivity.class);
+                startActivity(intent);
+                finish();
+            });
+        }
 
-        navSignos.setOnClickListener(v -> {
-            Intent intent = new Intent(AdministrarMedicamentoActivity.this, SignosVitalesActivity.class);
-            startActivity(intent);
-            finish();
-        });
+        if (navSignos != null) {
+            navSignos.setOnClickListener(v -> {
+                Intent intent = new Intent(AdministrarMedicamentoActivity.this, SignosVitalesActivity.class);
+                startActivity(intent);
+                finish();
+            });
+        }
 
         btnRegistrarAdmin.setOnClickListener(v -> {
             String medicamentoNombre = etMedicamento.getText() != null ? etMedicamento.getText().toString().trim() : "";
@@ -55,14 +61,21 @@ public class AdministrarMedicamentoActivity extends AppCompatActivity {
                 return;
             }
 
-            Paciente paciente = new Paciente("Juan", "Pérez", "CC", "106168945", "99887766D", 55, "Colombiano", 1.70, "HC-2024-001");
+            Paciente pacienteTarget = Paciente.pacienteActual != null ? Paciente.pacienteActual : (!Paciente.listaPacientes.isEmpty() ? Paciente.listaPacientes.get(0) : null);
+
+            if (pacienteTarget == null) {
+                Toast.makeText(this, "No hay un paciente seleccionado.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             Enfermero enfermero = new Enfermero("Carlos", "Ruiz", "CC", "11223344", 30, "Colombiano", 1.75, "EMP-003", 3000.0, "Turno Mañana");
 
             String detalleMed = medicamentoNombre + (!dosisStr.isEmpty() ? " (" + dosisStr + " mg)" : "");
 
-            enfermero.administrarMedicamento(paciente, detalleMed);
+            enfermero.administrarMedicamento(pacienteTarget, detalleMed);
+            pacienteTarget.getHistorial().agregarTratamiento("Medicamento administrado: " + detalleMed);
 
-            Toast.makeText(this, "Administración registrada y agregada al historial de Juan Pérez", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Administración registrada y agregada al historial de " + pacienteTarget.getNombreCompleto(), Toast.LENGTH_LONG).show();
             finish();
         });
     }

@@ -37,27 +37,44 @@ public class SignosVitalesActivity extends AppCompatActivity {
         navTurno = findViewById(R.id.navTurno);
         navMedicacion = findViewById(R.id.navMedicacion);
 
-        btnBack.setOnClickListener(v -> finish());
+        if (btnBack != null) {
+            btnBack.setOnClickListener(v -> finish());
+        }
 
-        navTurno.setOnClickListener(v -> {
-            Intent intent = new Intent(SignosVitalesActivity.this, TurnoEnfermeroActivity.class);
-            startActivity(intent);
-            finish();
-        });
+        if (navTurno != null) {
+            navTurno.setOnClickListener(v -> {
+                Intent intent = new Intent(SignosVitalesActivity.this, TurnoEnfermeroActivity.class);
+                startActivity(intent);
+                finish();
+            });
+        }
 
-        navMedicacion.setOnClickListener(v -> {
-            Intent intent = new Intent(SignosVitalesActivity.this, AdministrarMedicamentoActivity.class);
-            startActivity(intent);
-            finish();
-        });
+        if (navMedicacion != null) {
+            navMedicacion.setOnClickListener(v -> {
+                Intent intent = new Intent(SignosVitalesActivity.this, AdministrarMedicamentoActivity.class);
+                startActivity(intent);
+                finish();
+            });
+        }
 
         btnGuardarSignos.setOnClickListener(v -> {
-            Paciente paciente = new Paciente("Juan", "Pérez", "CC", "106168945", "99887766D", 55, "Colombiano", 1.70, "HC-2024-001");
+            Paciente pacienteTarget = Paciente.pacienteActual != null ? Paciente.pacienteActual : (!Paciente.listaPacientes.isEmpty() ? Paciente.listaPacientes.get(0) : null);
+            
+            if (pacienteTarget == null) {
+                Toast.makeText(this, "No hay un paciente seleccionado.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             Enfermero enfermero = new Enfermero("Carlos", "Ruiz", "CC", "11223344", 30, "Colombiano", 1.75, "EMP-003", 3000.0, "Turno Mañana");
+            enfermero.tomarSignosVitales(pacienteTarget);
 
-            enfermero.tomarSignosVitales(paciente);
+            String presion = etPresion.getText() != null ? etPresion.getText().toString().trim() : "";
+            String temp = etTemperatura.getText() != null ? etTemperatura.getText().toString().trim() : "";
+            String registroSignos = "Signos vitales tomados" + (!presion.isEmpty() ? " - PA: " + presion : "") + (!temp.isEmpty() ? " - Temp: " + temp + "°C" : "");
 
-            Toast.makeText(this, "Signos vitales guardados con éxito para Juan Pérez", Toast.LENGTH_SHORT).show();
+            pacienteTarget.getHistorial().agregarTratamiento(registroSignos);
+
+            Toast.makeText(this, "Signos vitales guardados con éxito para " + pacienteTarget.getNombreCompleto(), Toast.LENGTH_SHORT).show();
             finish();
         });
     }

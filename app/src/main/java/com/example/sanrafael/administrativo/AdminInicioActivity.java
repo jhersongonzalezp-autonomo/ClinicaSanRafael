@@ -2,10 +2,16 @@ package com.example.sanrafael.administrativo;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.card.MaterialCardView;
 
@@ -14,12 +20,15 @@ import com.example.sanrafael.administrador.FormularioActivity;
 import com.example.sanrafael.medico.Consulta;
 import com.example.sanrafael.paciente.Paciente;
 
+import java.util.List;
+
 public class AdminInicioActivity extends AppCompatActivity {
 
     private MaterialCardView registrarPaciente, agendarCita, verPacientes, generarFactura, tarjetaProximaCita;
     private TextView totalPacientes, totalConsultas, totalEmpleados;
     private LinearLayout opcionPacientes, opcionCitas, opcionPersonal;
     private ImageView salir;
+    private RecyclerView rvProximasCitas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +49,12 @@ public class AdminInicioActivity extends AppCompatActivity {
         opcionCitas = findViewById(R.id.opcionCitas);
         opcionPersonal = findViewById(R.id.opcionPersonal);
         salir = findViewById(R.id.salir);
+
+        rvProximasCitas = findViewById(R.id.rvProximasCitas);
+        if (rvProximasCitas != null) {
+            rvProximasCitas.setLayoutManager(new LinearLayoutManager(this));
+            rvProximasCitas.setAdapter(new CitaAdapter(Consulta.listaConsultas));
+        }
 
         actualizarResumen();
 
@@ -100,6 +115,9 @@ public class AdminInicioActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         actualizarResumen();
+        if (rvProximasCitas != null && rvProximasCitas.getAdapter() != null) {
+            rvProximasCitas.getAdapter().notifyDataSetChanged();
+        }
     }
 
     private void actualizarResumen() {
@@ -115,6 +133,52 @@ public class AdminInicioActivity extends AppCompatActivity {
                     + FormularioActivity.listaAdministrativos.size()
                     + 3;
             totalEmpleados.setText(String.valueOf(numEmpleados));
+        }
+    }
+
+    public static class CitaAdapter extends RecyclerView.Adapter<CitaAdapter.CitaViewHolder> {
+
+        private final List<Consulta> consultas;
+
+        public CitaAdapter(List<Consulta> consultas) {
+            this.consultas = consultas;
+        }
+
+        @NonNull
+        @Override
+        public CitaViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_cita, parent, false);
+            return new CitaViewHolder(view);
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull CitaViewHolder holder, int position) {
+            Consulta c = consultas.get(position);
+            if (c != null) {
+                if (holder.txtTituloCita != null && c.getPaciente() != null) {
+                    holder.txtTituloCita.setText(c.getPaciente().getNombreCompleto() + " ➔ " + (c.getMedico() != null ? c.getMedico().getNombreCompleto() : "Médico"));
+                }
+                if (holder.txtDetalleCita != null) {
+                    holder.txtDetalleCita.setText(c.getMotivo() != null ? c.getMotivo() : "Consulta general");
+                }
+            }
+        }
+
+        @Override
+        public int getItemCount() {
+            return consultas != null ? consultas.size() : 0;
+        }
+
+        public static class CitaViewHolder extends RecyclerView.ViewHolder {
+            TextView txtMesCita, txtDiaCita, txtTituloCita, txtDetalleCita;
+
+            public CitaViewHolder(@NonNull View itemView) {
+                super(itemView);
+                txtMesCita = itemView.findViewById(R.id.txtMesCita);
+                txtDiaCita = itemView.findViewById(R.id.txtDiaCita);
+                txtTituloCita = itemView.findViewById(R.id.txtTituloCita);
+                txtDetalleCita = itemView.findViewById(R.id.txtDetalleCita);
+            }
         }
     }
 }
